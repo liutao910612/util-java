@@ -1,7 +1,13 @@
 package com.liutao.nusum.test;
 
+import com.liutao.asymmetry.RSAUtil;
+import com.liutao.nusum.Base64Util;
 import com.liutao.smmetric.AESUtil;
 import com.liutao.smmetric.DESUtil;
+
+import java.security.KeyPair;
+import java.security.PrivateKey;
+import java.security.PublicKey;
 
 /**
  * @Author:LIUTAO
@@ -22,8 +28,13 @@ public class MD5Test {
 
 //        DESUtil.setKey("liutaokey");
 
-        testDESUtil();
-        testAESUtil();
+//        testDESUtil();
+//        testAESUtil();
+        try {
+            testRSA();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public static void testDESUtil() {
@@ -54,5 +65,25 @@ public class MD5Test {
         }
         System.out.println("加密后：" + result);
         System.out.println("解密后：" + resultD);
+    }
+
+    public static void testRSA() throws Exception {
+        try {
+
+            System.out.println("RSA公钥Base64编码:" + RSAUtil.getPublicKeyStr());
+            System.out.println("RSA私钥Base64编码:" + RSAUtil.getPrivateKeyStr());
+
+            //=================客户端=================
+            String message = "hello, i am infi, good night!";
+
+            String publicEncrypt = RSAUtil.publicEncrypt(message);
+            System.out.println("公钥加密并Base64编码的结果：" + publicEncrypt);
+
+
+            String privateEncrypt = RSAUtil.privateDecrypt(publicEncrypt);
+            System.out.println("解密后的明文: " + privateEncrypt);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
