@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="safety" />
+        <module name="util-gateway" />
         <module name="util-safety" />
         <module name="util-validate" />
         <module name="util-web" />
@@ -17,10 +18,11 @@
       <module name="safety" target="1.5" />
       <module name="TOOL_Java" target="1.5" />
       <module name="util" target="1.5" />
-      <module name="util-java" target="1.5" />
-      <module name="util-safety" target="1.5" />
+      <module name="util-gateway" target="1.8" />
+      <module name="util-java" target="1.8" />
+      <module name="util-safety" target="1.8" />
       <module name="util-validate" target="7" />
-      <module name="util-web" target="1.5" />
+      <module name="util-web" target="1.8" />
       <module name="validate" target="7" />
     </bytecodeTargetLevel>
   </component>
